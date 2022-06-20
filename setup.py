@@ -7,8 +7,8 @@ with open('HISTORY.md') as history_file:
     HISTORY = history_file.read()
 
 setup_args = dict(
-    name='Fliicoin API',
-    version='0.1.3',
+    name='Fliicoin',
+    version='0.1.5',
     description='Useful API commands to interact with the fliicoin network.',
     long_description_content_type="text/markdown",
     long_description=README + '\n\n' + HISTORY,

@@ -22,4 +22,13 @@ def server():
        data = url.read()
        return data
     else:
-       return ("Error receiving data", url.getcode())
+       return ("Error receiving data: ", url.getcode())
+
+def mine(username, input):
+    import urllib.request
+    url = urllib.request.urlopen('https://www.fliicoin.com/mine?username=' + username + '&guess=' + input)
+    if(url.getcode()==200):
+       data = url.read()
+       return data
+    else:
+       return ("Something went wrong when attempting to mine: ", url.getcode())
