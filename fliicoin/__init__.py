@@ -1,7 +1,7 @@
 from . import fliicoin
-import requests
+import urllib.request
 
 __all__ = [
     'fliicoin'
-    'requests'
+    'urllib.request'
 ]
