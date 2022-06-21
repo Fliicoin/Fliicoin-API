@@ -38,22 +38,16 @@ class fliicoin:
         import urllib
         from urllib.request import urlopen, Request
         import json
-        import PyQRCode
-        from PyQRCode import QRCode
-
+        
         url = ('https://server.fliicoin.com/qr?username=' + username)
         try:
-            conn = urlopen(url)
+            conn = urllib.request.urlopen(url)
         except urllib.error.HTTPError as e:
-            response = urlopen('https://server.fliicoin.com/qr?username=' + username)
-            data = response.read()
-            data = (str(data))
-            return (data)
+            error = urllib.request.urlopen('https://server.fliicoin.com/usernotfound')
+            error = error.read()
+            return (error)
         except urllib.error.URLError as e:
-            print('URLError: {}'.format(e.reason))
+            print('URL Error')
         else:
-            image = urllib.request.urlretrieve('https://server.fliicoin.com/qr?username=' + username)
-            s = ("fliicoin.com/user/" + username)
-            url = pyqrcode.create(s)
-            url.png((imagedestination), scale = 8)
-            return ('QR-Code save to the destination: ' + imagedestination)
+            image = urllib.request.urlretrieve('https://server.fliicoin.com/qr?username=' + username, imagedestination)
+            return ('QR-Code saved to the destination: ' + imagedestination)
